@@ -1,0 +1,51 @@
+.menuUser {
+  display: flex;
+  position: absolute;
+  flex-direction: column;
+  bottom: 100px;
+  right: 20px;
+  width: 100%;
+  min-width: 300px;
+  max-width: 350px;
+  border-radius: 10px;
+  border: 2px solid #4d4d55;
+  background-color: #202024;
+}
+
+.iconUser {
+  display: flex;
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  width: 70px;
+  height: 70px;
+  background-color: transparent;
+}
+
+.iconUser:hover {
+  cursor: pointer;
+}
+
+.iconUser img {
+  padding: 8px;
+  transition: .4s;
+  border-radius: 50%;
+  border: 2px solid #00000077;
+  background-color: #00000077;
+}
+
+.iconUser img:hover {
+  border: 2px solid #8257e5;
+  /* background-color: #4e7bb8; */
+}
+
+.formOver {
+  display: flex;
+  position: fixed;
+  flex-direction: row;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #00000099;
+}

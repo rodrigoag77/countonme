@@ -1,0 +1,18 @@
+* {
+  color: #ffffff;
+  background-color: #121214;
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.hover {
+  margin: 5px;
+}
+
+.hover:hover {
+  color: lightgreen;
+  cursor: pointer;
+}

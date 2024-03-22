@@ -1,0 +1,17 @@
+import { useContext } from 'react';
+import { Hover } from '../../components/Hover'
+import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../context/AuthContext';
+
+export default function Details() {
+  const { logout } = useContext(AuthContext)
+  const navigate = useNavigate();
+  return (
+    <div>
+      <Hover onClick={() => {
+        logout()
+        navigate('/')
+      }}>{'< Voltar'}</Hover>
+    </div>
+  );
+}

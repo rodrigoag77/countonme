@@ -1,0 +1,125 @@
+.userlist {
+  width: 50%;
+  max-width: 450px;
+  min-width: 300px;
+  align-items: center;
+  justify-content: center;
+}
+
+.divLogin {
+  display: flex;
+  color: white;
+  font-size: 15px;
+  align-items: center;
+  outline: none;
+  box-sizing: border-box;
+  transition: background .4s;
+}
+
+.nameLogin {
+  display: flex;
+  height: 75px;
+  width: 100%;
+  font-size: 20px;
+  margin-block: 8px;
+  border-radius: 10px;
+  padding-inline: 15px;
+  outline: none;
+  box-sizing: border-box;
+  background-color: #202024;
+  border: 2px solid #4d4d55;
+  justify-content: center;
+}
+
+.nameLogin:hover {
+  cursor: pointer;
+  background-color: #4e7bb8;
+}
+
+.nameLogin:focus {
+  border-color: #8257e5;
+}
+
+.divLogin img {
+  border-radius: 50%;
+  padding: 5px;
+  width: 48px;
+  height: 48px;
+  background-color: #00000055;
+  position: absolute;
+  left: 15px
+}
+
+.divLogin p {
+  background-color: transparent;
+  position: absolute;
+  left: 90px;
+}
+
+.navLogin {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn {
+  display: flex;
+  background-color: #202024;
+  border: 2px solid #4d4d55;
+  outline: none;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn p {
+  background-color: transparent;
+}
+
+.btn:hover {
+  cursor: pointer;
+  border-color: #4e7bb8;
+  background-color: #4e7bb8;
+}
+
+.btn:focus {
+  border-color: #8257e5;
+}
+
+.buttonNav {
+  width: 42px;
+  height: 42px;
+  min-width: 42px;
+  min-height: 42px;
+  border-radius: 50%;
+  margin-inline: 5px;
+  align-items: center;
+  justify-content: center;
+}
+
+.divOutList {
+  display: flex;
+  outline: none;
+  border-color: transparent;
+  justify-content: center;
+  align-items: center;
+}
+
+.divOutList:hover {
+  cursor: pointer;
+  color: #4e7bb8;
+}
+
+.divOutList:focus {
+  color: #8257e5;
+}
+
+.mi10 {
+  height: 40px;
+  margin-block: 5px;
+}
+
+.pad-i5 {
+  padding-inline: 5px;
+}
