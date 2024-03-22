@@ -17,6 +17,11 @@ export const UserList = ({ children, ...props }) => {
   const [userName, setUserName] = useState(null)
   const [userMail, setUserMail] = useState(null)
   const [userPass, setUserPass] = useState('')
+
+  const [userAddMail, setUserAddMail] = useState('')
+  const [userAddName, setUserAddName] = useState('')
+  const [userAddPass, setUserAddPass] = useState('')
+
   const { authCheck, authMessage, setAuthMessage } = useContext(AuthContext)
 
   const handleBack = () => {
@@ -69,7 +74,14 @@ export const UserList = ({ children, ...props }) => {
 
   const loadUserAdd = () => {
     return (
-      <div style={{ left: '0px', width: '100vw', height: '100vh' }} onClick={() => setUserNew(false)}></div>
+      <>
+        <div style={{ position: 'absolute', left: '0px', top: '0px', right: '0px', bottom: '0px' }} onClick={() => setUserNew(false)}></div>
+        <div style={{ position: 'absolute', left: '10%', top: '10%', right: '10%', bottom: '10%' }}>
+          <Input type='text' placeholder='nome' autoFocus value={userAddName} onChange={e => setUserAddName(e.target.value)} />
+          <Input type='text' placeholder='e-mail' value={userAddMail} onChange={e => setUserAddMail(e.target.value)} />
+          <Input type='password' placeholder='e-mail' value={userAddPass} onChange={e => setUserAddPass(e.target.value)} />
+        </div>
+      </>
     )
   }
 
