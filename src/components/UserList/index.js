@@ -3,8 +3,8 @@ import { useContext } from 'react'
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa6";
 import { AuthContext } from '../../context/AuthContext'
 import { Input } from "../Input"
-import { UserAdd } from '../UserAdd';
 import { Spinner } from "../Spinner";
+import { UserAdd } from '../LoginMenu';
 import api from "../../api";
 
 export const UserList = ({ children, ...props }) => {
