@@ -41,7 +41,7 @@ export const UserList = ({ children, ...props }) => {
           const { name } = e.data
           let achou = false
           let userListNew = userList.slice()
-          userList.forEach(e => achou = achou || (e.name === name))
+          userList.forEach(e => achou = achou || (e.mail === userAdd))
           if (!achou)
             userListNew.push({ name, mail: userAdd })
           setUserAdd('')
@@ -76,10 +76,21 @@ export const UserList = ({ children, ...props }) => {
     return (
       <>
         <div style={{ position: 'absolute', left: '0px', top: '0px', right: '0px', bottom: '0px' }} onClick={() => setUserNew(false)}></div>
-        <div style={{ position: 'absolute', left: '10%', top: '10%', right: '10%', bottom: '10%' }}>
-          <Input type='text' placeholder='nome' autoFocus value={userAddName} onChange={e => setUserAddName(e.target.value)} />
-          <Input type='text' placeholder='e-mail' value={userAddMail} onChange={e => setUserAddMail(e.target.value)} />
-          <Input type='password' placeholder='e-mail' value={userAddPass} onChange={e => setUserAddPass(e.target.value)} />
+        <div
+          style={{ position: 'absolute', left: '25%', top: '10%', right: '25%', bottom: '10%', minWidth: '350px' }}
+          action=""
+          method="post"
+          autoComplete='off'
+        >
+          <Input autoComplete="off" id="nameAdd" type='text' placeholder='nome' autoFocus value={userAddName} onChange={e => setUserAddName(e.target.value)} />
+          <Input autoComplete="off" id="mailAdd" type='text' placeholder='e-mail' value={userAddMail} onChange={e => setUserAddMail(e.target.value)} />
+          <Input autoComplete="off" id="passAdd" type='password' placeholder='senha' value={userAddPass} onChange={e => setUserAddPass(e.target.value)} />
+          <div className='formButton'>
+            <button className='btn formButtonStyle' onClick={handleSubmitUserAdd}>Ok</button>
+            <button className='btn formButtonStyle' onClick={handleCleanUserAdd}>Limpar</button>
+            <button className='btn formButtonStyle' onClick={handleCancelUserAdd}>Cancelar</button>
+          </div>
+          <p className="divLogin" style={{ justifyContent: 'center' }}>{authMessage}</p>
         </div>
       </>
     )
@@ -161,6 +172,45 @@ export const UserList = ({ children, ...props }) => {
     } else
       setUserList([])
   }, [reload])
+
+
+  useEffect(() => {
+    handleCleanUserAdd()
+  }, [userNew])
+
+  const handleSubmitUserAdd = () => {
+    setSpinner(true)
+    api.post('user', { name: userAddName, email: userAddMail, phone: '9999999999', password: userAddPass })
+      .then(e => {
+        let achou = false
+        let userListNew = userList.slice()
+        userList.forEach(e => achou = achou || (e.mail === userAddMail))
+        if (!achou)
+          userListNew.push({ name: userAddName, mail: userAddMail })
+        setUserList(userListNew)
+        localStorage.setItem('@countonme/userlist', JSON.stringify(userListNew))
+        setSpinner(false)
+        setUserNew(false)
+      })
+      .catch(e => {
+        if (e.response && e.response.data && e.response.data.message)
+          setAuthMessage(e.response.data.message)
+        setSpinner(false)
+      })
+  }
+
+  const handleCancelUserAdd = () => {
+    setUserNew(false)
+  }
+
+  const handleCleanUserAdd = () => {
+    setUserAddMail('')
+    setUserAddName('')
+    setUserAddPass('')
+    const nameAdd = document.querySelector('#nameAdd')
+    if (nameAdd)
+      nameAdd.focus()
+  }
 
   return (
     <>
